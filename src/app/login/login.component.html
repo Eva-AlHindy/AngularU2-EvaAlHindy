@@ -1,0 +1,26 @@
+<div class="flex-container">
+  <!-- We use directive ngif to test the variable userState if it is found in local storage or not-->
+  <div class="" *ngIf="!userState">
+    <p>
+      Please Login
+    </p>
+    <input type="text" placeholder="username" [(ngModel)]="username">
+    <br>
+    <div class="errormassage" *ngIf="!usernameMoreThanTen">
+      User name must be more than ten characters.
+    </div>
+    <div class="errormassage" *ngIf="!usernameIncludeNumber">
+      User name must include at least one digit.
+    </div>
+    <br>
+    <button type="button" class="" (click)="login()" [disabled]="username===''" [routerLink]="['/DashBoard']">Login </button>
+  </div>
+
+  <div class="" *ngIf="userState">
+    <p>
+      You are already logged in.
+    </p>
+    <button type="button" class="" (click)="logout()">Logout </button>
+  </div>
+
+</div>
